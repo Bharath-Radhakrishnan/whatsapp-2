@@ -16,7 +16,7 @@ function Loading() {
           style={{ marginBottom: "20px" }}
           height={200}
         />
-        <Circle color="#3CBC28"></Circle>
+        {/* <Circle></Circle> */}
       </div>
     </center>
   );

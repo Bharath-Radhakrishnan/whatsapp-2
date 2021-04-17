@@ -15,7 +15,7 @@ function Chat({ users }) {
   const recipientEmail = getReciepientsEmail(users, user);
   return (
     <Container>
-      {recipient.photoURL ? (
+      {recipient?.photoURL ? (
         <UserAvatar src={recipient?.photoURL} />
       ) : (
         <UserAvatar>{recipientEmail[0]} </UserAvatar>

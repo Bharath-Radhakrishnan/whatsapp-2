@@ -42,11 +42,9 @@ function Sidebar() {
         <UserAvatar
           src={user.photoURL}
           onClick={() => {
-            console.log("signing out");
             auth.signOut();
           }}
         />
-
         <IconsContainer>
           <IconButton onClick={createChat}>
             <ChatIcon />
@@ -63,7 +61,7 @@ function Sidebar() {
       <SidebarButton>Start A new Chat </SidebarButton>
       {/* List of Chats */}
       {chatsSnapshot?.docs.map((chat) => {
-        return <Chat key={chat.id} users={chat.data().users} />;
+        return <Chat key={chat.id} id={chat.id} users={chat.data().users} />;
       })}
     </Container>
   );

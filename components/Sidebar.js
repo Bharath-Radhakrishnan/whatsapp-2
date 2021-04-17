@@ -1,17 +1,31 @@
 import styled from "styled-components";
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar, Button, IconButton } from "@material-ui/core";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
+import * as EmailValidator from "email-validator";
 
 function Sidebar() {
+  const createChat = () => {
+    const input = prompt(
+      "please enter an email address for the user you wish to chat with "
+    );
+    if (!input) return;
+    if (EmailValidator.validate(input)) {
+    }
+  };
+
   return (
     <Container>
       <Header>
         <UserAvatar />
         <IconsContainer>
-          <ChatIcon />
-          <MoreVertIcon />
+          <IconButton>
+            <ChatIcon onClick={createChat} />
+          </IconButton>
+          <IconButton>
+            <MoreVertIcon />
+          </IconButton>
         </IconsContainer>
       </Header>
       <Search>

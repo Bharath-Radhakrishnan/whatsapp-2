@@ -7,6 +7,7 @@ import * as EmailValidator from "email-validator";
 import { auth, db } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
+import Chat from "./Chat";
 
 function Sidebar() {
   const [user] = useAuthState(auth);
@@ -59,6 +60,10 @@ function Sidebar() {
         <SearchInput placeholder="Search Chats" />
       </Search>
       <SidebarButton>Start A new Chat </SidebarButton>
+      {/* List of Chats */}
+      {chatsSnapshot?.docs.map((chat) => {
+        return <Chat key={chat.id} users={chat.data().users} />;
+      })}
     </Container>
   );
 }

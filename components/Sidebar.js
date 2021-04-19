@@ -22,7 +22,7 @@ function Sidebar() {
     if (!input) return;
     if (
       EmailValidator.validate(input) &&
-      !chatAlreadyExists &&
+      !chatAlreadyExists(input) &&
       input !== user.email
     ) {
       db.collection("chats").add({
@@ -34,7 +34,7 @@ function Sidebar() {
   const chatAlreadyExists = (recipientEmail) =>
     !!chatsSnapshot?.docs.find(
       (chat) =>
-        chat.data().users.find((users) => user === recipientEmail)?.length > 0
+        chat.data().users.find((user) => user === recipientEmail)?.length > 0
     );
   return (
     <Container>

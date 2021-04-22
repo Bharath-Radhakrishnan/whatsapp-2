@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 function Message({ user, message }) {
-  return <Container></Container>;
+  return <Container>{message.message}</Container>;
 }
 
 export default Message;

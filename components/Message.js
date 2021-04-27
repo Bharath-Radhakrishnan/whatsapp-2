@@ -11,10 +11,8 @@ function Message({ user, message }) {
   return (
     <Container>
       <TypeofMessage>
-        <MessageElement>
-          {message.message}
-          {message.timestamp ? moment(message.timestamp).format("LT") : ""}
-        </MessageElement>
+        {message.message}
+        {message.timestamp ? moment(message.timestamp).format("LT") : ""}
       </TypeofMessage>
     </Container>
   );
@@ -23,7 +21,7 @@ function Message({ user, message }) {
 export default Message;
 const Container = styled.div``;
 const MessageElement = styled.p`
-  width: "fit-content";
+  width: fit-content;
   padding: 15px;
   border-radius: 8px;
   margin: 10px;
@@ -32,11 +30,11 @@ const MessageElement = styled.p`
   position: relative;
   text-align: right;
 `;
-const Sender = styled.div`
+const Sender = styled(MessageElement)`
   margin-left: auto;
   background-color: #dcf8c6;
 `;
-const Reciever = styled.div`
+const Reciever = styled(MessageElement)`
   background-color: whitesmoke;
   text-align: left;
 `;

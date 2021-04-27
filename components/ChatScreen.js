@@ -54,6 +54,13 @@ function ChatScreen({ chat, messages }) {
       });
     }
   };
+
+  const scrollToBottom = () => {
+    endOfMessageRef.current.scrollIntoView({
+      behaviour: "smooth",
+      block: "start",
+    });
+  };
   const handleChange = (e) => {
     const { value } = e.target;
     setInput(value);
@@ -73,6 +80,7 @@ function ChatScreen({ chat, messages }) {
       photoURL: user.photoURL,
     });
     setInput("");
+    scrollToBottom();
   };
 
   const recipient = recipientSnapshot?.docs?.[0]?.data();
@@ -171,4 +179,6 @@ const HeaderInformation = styled.div`
   }
 `;
 const HeaderIcons = styled.div``;
-const EndofMessage = styled.div``;
+const EndofMessage = styled.div`
+  margin-bottom: 50px;
+`;
